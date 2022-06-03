@@ -1,0 +1,83 @@
+{% extends 'index.html' %}
+
+{% block body %}
+<br>
+
+<h3> BlueTick Resume Parser Application !!!</h3>
+
+    <p>The main Aim of this application is to extract the important information from the resumes</p>
+        <ol>
+            <li>Machine Learning </li>
+            <li>Natural Language Processing</li>
+        </ol>
+        
+     <p>
+        Using NLP and ML Techniques we will extract the important information from the text and do necessary text cleaning and parse the information form the text.
+    </p>
+
+        
+    <p><strong>Python Libraries used in Machine Learning</strong></p>
+    <ul>
+        <li>sklearn</li>
+        <li>Numpy</li>
+        <li>Pandas</li>
+        <li>Data Analysis</li>
+    </ul>
+    <p><strong>Python Libraries used in Natural Language Processing</strong></p>
+    <ul>
+        <li>SpaCy</li>
+        <li>Pandas</li>
+        <li>Regular Expression</li>
+        <li>String</li>
+    </ul>
+    <p>
+        As are combining two major technologies to develop the project,
+        for the sake of easy to understand we divide the concepts into several stage of development.
+    </p>
+
+    <p>
+        <strong>Stage -1: We will setup the project by doing the necessary installations and requirements.</strong>
+        <ul>
+            <li>Install Python</li>
+            <li>Install Dependencies</li>
+        </ul>
+
+    </p>
+    <p>
+        <strong>Stage -2: We will do data preparation. That is used to clean the data for giving better Model performance.</strong>
+        <ul>
+            <li>Gather resume data in Text format </li>
+            <li>Overview on NLP pipeline</li>
+            <li>Extract Text from all Resumes</li>
+            <li>Clean and Prepare text</li>
+        </ul>
+    </p>
+
+    <p>
+        <strong>Stage -3: We will further clean the text and preprocess the data for train machine learning.</strong>
+        <ul>
+            <li>Prepare Training Data for ML Algorithms </li>
+            <li>Convert data into Array format using Embedding techniques</li>
+        </ul>
+    </p>
+
+    <p>
+        <strong>Stage -4: With the preprocess data we will train the ML Algorithms.</strong>
+        <ul>
+            <li>Configuring ML Model</li>
+            <li>Train the model</li>
+        </ul>
+    </p>
+
+    <p>
+        <strong>Stage -5: We will predict the resumes using NLP and model what we developed and create data pipeline for parsing text.</strong>
+        <ul>
+            <li>Load Model</li>
+            <li>collect the entire text from resumes</li>
+            <li>clean the data and use developed model for prediction </li>
+            <li>collect the results given by our model </li>
+        </ul>
+    </p>
+
+    <h4>Finally, we will put all together and create Resume Parser app.</h4>
+{% endblock  %}
