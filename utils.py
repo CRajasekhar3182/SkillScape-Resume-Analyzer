@@ -1,55 +1,19 @@
 import os
-import settings
-import pdf_settings
-import numpy as np
-from imutils.perspective import four_point_transform
-import glob
-from pdf2docx import converter,parse,Converter
-from pdf2docx import parse
-from docx import Document
-import utils
-from PyPDF2 import PdfFileReader, PdfFileWriter
-import fitz
-import docx2txt
 
 def save_upload_image(fileObj):
-    filename = fileObj.filename
-    if filename.endswith('.pdf'):
-        filename = fileObj.filename
-        extensions = ['docx', 'pdf']
-        c = []
-        d = []
-        for i in extensions:
-            if i in filename:
-                d.append(i)
-                c.append(filename.index(i))
-        k = c[0]
-        filename = filename[:k]
-        save_filename = 'filename.' + d[0]
-        upload_image_path = pdf_settings.join_path(pdf_settings.SAVE_DIR,
-                                               save_filename)
+    # Get the filename from the uploaded file's name attribute
+    filename = fileObj.name
+    upload_dir = "uploads"  # Change this to your desired upload directory
 
-        fileObj.save(upload_image_path)
-        return upload_image_path
-    elif filename.endswith('.docx'):
-        extensions = ['docx','pdf']
-        c = []
-        d = []
-        for i in extensions:
-            if i in filename:
-                d.append(i)
-                c.append(filename.index(i))
-        k = c[0]
-        filename = filename[:k]
-        save_filename = 'filename.' + d[0]
-        upload_image_path = settings.join_path(settings.SAVE_DIR,
-                                                   save_filename)
+    # Ensure the upload directory exists
+    if not os.path.exists(upload_dir):
+        os.makedirs(upload_dir)
+    
+    # Define the path where the file will be saved
+    file_path = os.path.join(upload_dir, filename)
 
-        fileObj.save(upload_image_path)
-        return upload_image_path
-    else:
-        return "Only PDF and docx files are allowed"
+    # Save the uploaded file
+    with open(file_path, "wb") as f:
+        f.write(fileObj.getbuffer())  # Write the content of the uploaded file
 
-
-
-
+    return file_path  # Return the path of the saved file
